@@ -125,8 +125,17 @@ Plugin 'Solarized'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ctrlp.vim'
 Plugin 'surround.vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jnurmine/Zenburn'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-scripts/indentpython.vim'
 "Plugin 'Syntastic'
+Plugin 'nvie/vim-flake8'
 Plugin 'ack.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'hardmode'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -145,11 +154,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-set smartindent
-set ts=4
-set shiftwidth=4
-set expandtab
-
 "and invisible characters to distinguish tabs and spaces...
 set list
 set listchars=tab:>-,trail:·
@@ -157,9 +161,20 @@ set relativenumber
 set number          
 set background=dark
 let g:solarized_termcolors = 256  " New line!!
-colorscheme solarized
+
+if has('gui_running')
+	  set background=dark
+	    colorscheme solarized
+    else
+	      colorscheme zenburn
+      endif
 
 
+" this should map but it does not
+"
+"call togglebg#map("<F5>")
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " syntastic stuff
 set statusline+=%#warningmsg#
@@ -172,3 +187,94 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_quiet_messages = { "type": "style" }
+
+let python_highlight_all=1
+syntax on
+
+" folding stuff
+set foldmethod=indent
+set foldlevel=99
+
+nnoremap <space> za
+
+let g:SimpylFold_docstring_preview=1
+
+" spaces and tabs
+"au BufNewFile,BufRead *.py
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=79
+set expandtab
+set autoindent
+set fileformat=unix
+
+" deal with white space : does not work
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" utf support
+set encoding=utf-8
+
+
+" old spacing lines (all the same except smartindent
+"set smartindent
+"set ts=4
+"set shiftwidth=4
+"set expandtab
+
+" autocomplete settings
+"
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" hard mode settings
+"  \h to toggle hard mode
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" automatic enable 
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+" airline configuration
+"
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+  endif
+  let g:airline_symbols.space = "\ua0"
+
+let g:airline_theme='simple'
+let g:airline#extensions#tabline#enabled = 1
+set t_Co=256
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+
+" air-line
+let g:airline_powerline_fonts = 1
+"
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"     " unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+"
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+"
