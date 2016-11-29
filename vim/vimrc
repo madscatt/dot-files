@@ -44,7 +44,9 @@ inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+  set mouse=v
+  "set mouse=a
+  "set mouse=r
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -156,7 +158,8 @@ filetype plugin indent on    " required
 
 "and invisible characters to distinguish tabs and spaces...
 set list
-set listchars=tab:>-,trail:·
+set listchars=tab:>-,trail:·,eol:¬
+
 set relativenumber 
 set number          
 set background=dark
