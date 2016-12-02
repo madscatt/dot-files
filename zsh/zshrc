@@ -1,0 +1,158 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="bureau"
+ZSH_THEME="cobalt2"
+
+bindkey -v
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# User configuration
+
+export PATH="/usr/local/bin/:/usr/local/bin/namd:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$PATH:/Users/curtisj/anaconda2_git/bin/"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# if you do a 'rm *', Zsh will give you a sanity check!
+setopt RM_STAR_WAIT
+
+# allows you to type Bash style comments on your command line
+# good 'ol Bash
+setopt interactivecomments
+
+# Zsh has a spelling corrector
+setopt CORRECT
+
+
+
+# make sure that if a program wants you to edit
+# # text, that Vim is going to be there for you
+export EDITOR="vim"
+export USE_EDITOR=$EDITOR
+export VISUAL=$EDITOR
+#
+# # ooh, what is this? Aliases?
+source ~/.oh-my-zsh/lib/alias.zsh
+#
+alias slo="ssh -Y onsager.ncnr.nist.gov"
+alias slh="ssh -Y hal.ncnr.nist.gov"
+
+alias cdd="cd /Users/curtisj/Desktop"
+
+alias cdg="/Users/curtisj/git_working_copies"
+alias cdz="/Users/curtisj/git_working_copies/zazzie"
+alias cdsm="/Users/curtisj/git_working_copies/sasmol"
+alias cdzm="/Users/curtisj/git_working_copies/zazmol"
+
+
+alias lsh='date ; ls -lht | head'
+alias lsd='date ; ls -lt | grep "drwx*"'
+
+alias python='/Library/Frameworks/EPD64.framework/Versions/Current/bin/python'
+alias apython='/Users/curtisj/anaconda2/bin/python2.7'
+alias gpython='/Users/curtisj/anaconda2_git/bin/python2.7'
+alias gnosetests='/Users/curtisj/anaconda2_git/bin/nosetests'
+alias nosetests='/Library/Frameworks/EPD64.framework/Versions/Current/bin/nosetests'
+alias a2python='/opt/local/anaconda2/bin/python'
+alias a3python='/opt/local/anaconda3/bin/python'
+
+alias csm="pushd . ; cdsm ; rm -Rf build /Users/curtisj/anaconda2_git/lib/python2.7/site-packages/sasmol* ; gpython setup.py install ; popd"
+
+alias czm="pushd . ; cdzm ; rm -Rf build /Users/curtisj/anaconda2_git/lib/python2.7/site-packages/sasmol* ; gpython setup.py install ; popd"
+
+alias rmns2='sudo rm -Rf /opt/local/anaconda2/lib/python2.7/site-packages/sassie*'
+alias cns2='sudo rm -Rf /opt/local/anaconda2/lib/python/site-packages/sassie ; pushd . ; cdns2 ; sudo /opt/local/anaconda2/bin/python setup.py install ; popd'
+
+alias cds='cd /Users/curtisj/subversion_working_copies/svn_utk/sassie_1.0/trunk'
+alias cds2='cd /Users/curtisj/subversion_working_copies/svn_utk/sassie_2.0/trunk'
+alias cs='pushd . ; cds ; sudo rm -Rf build ;  sudo -S /Users/curtisj/anaconda2/bin/python2.7 setup.py install ; popd'
+alias cs2='pushd . ; cds2 ; sudo -S /opt/local/anaconda2/bin/python2.7 setup.py install ; popd'
+
+alias vmdnt='/Applications/VMD\ 1.9.2.app/Contents/vmd/vmd_MACOSXX86 -dispdev text'
+alias vmd='/Applications/VMD\ 1.9.2.app/Contents/vmd/vmd_MACOSXX86'
+
+alias slt='ssh -X madscatt@titan.ccs.ornl.gov'
+
+alias cdsvn='cd ~/subversion_working_copies/svn_utk'
+alias cddocs='cdsvn ; cd sassie_docs'
+alias cds='cd /Users/curtisj/subversion_working_copies/svn_utk/sassie_1.0/trunk'
+alias cds2='cd /Users/curtisj/subversion_working_copies/svn_utk/sassie_2.0/trunk'
+alias cdt='cd /Users/curtisj/subversion_working_copies/svn_utk/sassie_1.0/trunk/testing'
+alias cdt2='cd /Users/curtisj/subversion_working_copies/svn_utk/sassie_2.0/trunk/testing'
+
+alias sls='ssh -Y sassie-web.chem.utk.edu'
+alias sle='ssh -Y entropy.chem.utk.edu'
+alias slme='ssh -Y 129.6.123.223'
+
+alias cp='cp -i '
+alias rm='rm -i '
+alias umusb='diskutil list ; echo "diskutil unmount"'
+alias updatedb='sudo /usr/libexec/locate.updatedb'
