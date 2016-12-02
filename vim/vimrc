@@ -137,6 +137,10 @@ Plugin 'nvie/vim-flake8'
 Plugin 'ack.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-misc'
+Plugin 'vim-easytags' 
+Plugin 'tagbar'
+Plugin 'vim-gitgutter'
 "Plugin 'hardmode'
 "
 " All of your Plugins must be added before the following line
@@ -159,7 +163,8 @@ filetype plugin indent on    " required
 "and invisible characters to distinguish tabs and spaces...
 set list
 set listchars=tab:>-,trail:·,eol:¬
-
+set wildignore=*.a,*.so
+set wildignore+=*o
 set relativenumber 
 set number          
 set background=dark
@@ -183,6 +188,7 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set statusline+=%{fugitive#statusline()}
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
