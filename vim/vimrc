@@ -45,6 +45,7 @@ inoremap <C-U> <C-G>u<C-U>
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=v
+  set mouse+=a
   "set mouse=a
   "set mouse=r
 endif
@@ -174,9 +175,10 @@ if has('gui_running')
 	  set background=dark
 	    colorscheme solarized
     else
-	      colorscheme zenburn
-      endif
+	    colorscheme zenburn
+    endif
 
+color industry
 
 " this should map but it does not
 "
