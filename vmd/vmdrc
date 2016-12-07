@@ -1,0 +1,14 @@
+lappend auto_path /Users/curtisj/.vmd/la1.0
+lappend auto_path /Users/curtisj/.vmd/orient
+
+display projection orthographic
+axes location origin
+menu main on
+
+package require Orient
+namespace import Orient::orient
+
+set sel [atomselect top "all"]
+set I [draw principalaxes $sel]
+
+
