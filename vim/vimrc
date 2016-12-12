@@ -45,7 +45,7 @@ inoremap <C-U> <C-G>u<C-U>
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=v
-  set mouse+=a
+  "set mouse+=a
   "set mouse=a
   "set mouse=r
 endif
@@ -206,6 +206,7 @@ syntax on
 set foldmethod=indent
 set foldlevel=99
 
+set wrap
 nnoremap <space> za
 
 let g:SimpylFold_docstring_preview=1
@@ -288,4 +289,5 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-"
+
+set clipboard=unnamed

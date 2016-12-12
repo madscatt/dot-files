@@ -8,7 +8,7 @@ menu main on
 package require Orient
 namespace import Orient::orient
 
-set sel [atomselect top "all"]
-set I [draw principalaxes $sel]
+#set sel [atomselect top "all"]
+#set I [draw principalaxes $sel]
 
 
